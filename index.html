@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>CAN HypNeuro Centre | Kursus Hipnoterapi & Neuroscience</title>
-    <meta name="description" content="Pusat pelatihan Hypnotherapy, NLP, dan Neuroscience. Kelas Self-Hypnosis, Public Speaking, dan Bahasa Inggris berbasis cara kerja otak.">
+    <meta name="description" content="Pusat pelatihan Hypnotherapy, NLP, dan Neuroscience oleh Coach Abu Naveed.">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-43CMFX2J44"></script>
     <script>
@@ -18,6 +18,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
@@ -42,7 +44,6 @@
         .show { opacity: 1; filter: blur(0); transform: translateY(0); }
         .delay-200 { transition-delay: 200ms; }
         .delay-400 { transition-delay: 400ms; }
-        .delay-600 { transition-delay: 600ms; }
 
         /* Header */
         header { background: rgba(10, 25, 47, 0.85); padding: 1rem 5%; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212, 175, 55, 0.3); display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
@@ -64,7 +65,7 @@
         .main-cta-btn { display: inline-block; background: linear-gradient(45deg, var(--accent-gold), var(--accent-gold-bright)); color: var(--primary-dark); padding: 1rem 2.5rem; border-radius: 4px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 10px 20px -10px rgba(212, 175, 55, 0.5); }
         .main-cta-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 30px -10px rgba(212, 175, 55, 0.7); }
 
-        /* Sections Global */
+        /* Sections & Grid */
         .section-padding { padding: 7rem 5%; }
         .bg-dark { background-color: var(--primary-blue); color: var(--text-gray); }
         .bg-dark h2, .bg-dark h3 { color: var(--text-light); }
@@ -79,78 +80,85 @@
         .service-card:hover { transform: translateY(-15px); border-bottom: 4px solid var(--accent-gold); box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2); }
         .card-icon { font-size: 3rem; color: var(--accent-gold); margin-bottom: 1.5rem; display: inline-block; }
 
-        /* ========================================= */
-        /* GAYA BARU UNTUK KARTU KELAS (CLASSES) */
-        /* ========================================= */
-        .class-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
-            /* Aksen warna biru tua di atas untuk membedakan dengan services */
-            border-top: 5px solid var(--primary-blue); 
-            display: flex;
-            flex-direction: column;
-            height: 100%; /* Agar tinggi kartu sama rata */
-        }
+        /* Classes Cards */
+        .class-card { background: white; padding: 2.5rem 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; border-top: 5px solid var(--primary-blue); display: flex; flex-direction: column; height: 100%; }
+        .class-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(10, 25, 47, 0.15); border-top-color: var(--accent-gold); }
         
-        .class-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.15);
-            border-top-color: var(--accent-gold); /* Berubah jadi emas saat hover */
-        }
-
-        .class-icon-wrapper {
-            width: 70px; height: 70px;
-            background: var(--bg-off-white);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 2.5rem;
-        }
-        
-        /* Jika nanti pakai gambar logo asli, gunakan class ini pada <img> */
-        .class-logo-img { width: 60%; height: auto; } 
+        .class-icon-wrapper { width: 100%; height: 90px; display: flex; align-items: center; justify-content: flex-start; margin-bottom: 1rem; }
+        .class-logo-img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
         .class-card h3 { margin-bottom: 1rem; font-size: 1.5rem; color: var(--primary-blue); }
         .class-card p { flex-grow: 1; font-size: 0.95rem; margin-bottom: 1.5rem; }
-
-        /* Label kecil (Tags) */
         .class-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto; }
-        .tag {
-            font-size: 0.75rem;
-            padding: 0.4rem 0.8rem;
-            background: var(--bg-light);
-            color: var(--primary-blue);
-            border-radius: 20px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(10, 25, 47, 0.1);
-        }
-        
-        /* Why Us */
+        .tag { font-size: 0.75rem; padding: 0.4rem 0.8rem; background: var(--bg-light); color: var(--primary-blue); border-radius: 20px; font-weight: 600; border: 1px solid rgba(10, 25, 47, 0.1); }
+
+        /* Why Us Layout */
         .why-us-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; align-items: center; }
-        .why-us-image img { width: 100%; border-radius: 20px; box-shadow: -20px 20px 0px var(--accent-gold); }
+        
+        .why-us-image { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+        }
+        .why-us-image img { 
+            width: 100%; 
+            max-width: 350px; /* Batasi lebar maksimal agar tidak raksasa */
+            height: auto;
+            border-radius: 20px; 
+            box-shadow: -15px 15px 0px var(--accent-gold); /* Shadow disesuaikan */
+        }
+
         .feature-item { display: flex; align-items: flex-start; margin-bottom: 2rem; }
         .feature-icon { background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); padding: 1rem; border-radius: 50%; margin-right: 1.5rem; font-size: 1.5rem; }
 
         /* Footer */
-        footer { background: var(--primary-dark); color: var(--text-gray); padding: 5rem 5% 2rem; text-align: center; position: relative; }
+        footer { background: var(--primary-dark); color: var(--text-gray); padding: 5rem 5% 3rem; text-align: center; position: relative; }
         footer::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(to right, var(--primary-dark), var(--accent-gold), var(--primary-dark)); }
+        
+        footer h3 { color: #ffffff !important; margin-bottom: 2rem; font-size: 2.2rem; }
+        
+        /* Footer Bottom */
+        .footer-bottom { 
+            margin-top: 4rem; 
+            padding-top: 2rem; 
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 2rem;
+        }
+        
+        .member-section { text-align: left; }
+        .member-section p { font-size: 0.9rem; color: var(--accent-gold); margin-bottom: 0.5rem; }
+        
+        .ibh-logo { height: 60px; width: auto; } 
+
+        .social-links { display: flex; gap: 1rem; }
+        .social-btn {
+            width: 45px; height: 45px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .social-btn:hover { background: var(--accent-gold); color: var(--primary-dark); transform: translateY(-3px); }
 
         /* Responsive */
         @media (max-width: 968px) { 
             .hero-content h1 { font-size: 3rem; } 
             .why-us-grid { grid-template-columns: 1fr; gap: 3rem; } 
-            .why-us-image { order: -1; }
+            .why-us-image { order: -1; margin-bottom: 2rem;}
         }
         @media (max-width: 768px) {
             .nav-links { position: fixed; right: -100%; top: 0; height: 100vh; background: var(--primary-dark); flex-direction: column; justify-content: center; width: 80%; transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.5); }
             .nav-links.active { right: 0; }
             .menu-toggle { display: block; z-index: 1001; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .section-title-wrapper h2 { font-size: 2.2rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .member-section { text-align: center; }
         }
     </style>
 </head>
@@ -165,7 +173,7 @@
                 <li><a href="#services">Program</a></li>
                 <li><a href="#why-us">Why Us</a></li>
                 <li><a href="#classes">Kelas Online</a></li>
-                <li><a href="https://wa.me/6281234567890" class="cta-btn-nav" id="wa-header">Konsultasi Gratis</a></li>
+                <li><a href="https://wa.me/6281543111305" class="cta-btn-nav" id="wa-header">Konsultasi Gratis</a></li>
             </ul>
         </nav>
     </header>
@@ -174,7 +182,7 @@
         <div class="hero-content hidden">
             <span class="hero-subtitle">Coach Abu Naveed Presents</span>
             <h1>Unlock Your Brain's True Potential.</h1>
-            <p>Paduan sinergis antara Hypnotherapy modern dan Neuroscience untuk menembus batasan mental, menyembuhkan trauma, dan mengakselerasi perubahan kualitas hidup Anda</p>
+            <p>Paduan sinergis antara Hypnotherapy modern dan Neuroscience untuk menembus batasan mental, menyembuhkan trauma, dan mengakselerasi perubahan kualitas hidup Anda.</p>
             <a href="#services" class="main-cta-btn" id="cta-hero">Mulai Transformasi Anda</a>
         </div>
     </section>
@@ -203,6 +211,52 @@
         </div>
     </section>
 
+    <section class="section-padding bg-gray" id="classes">
+        <div class="section-title-wrapper hidden">
+            <h2>Kelas Online Terbaru</h2>
+            <p>Tingkatkan keahlian Anda dengan metode pembelajaran berbasis cara kerja otak.</p>
+        </div>
+        <div class="grid-container">
+            
+            <div class="class-card hidden">
+                <div class="class-icon-wrapper">
+                    <img src="canself.png" alt="Logo CAN Self Hypnosis" class="class-logo-img">
+                </div>
+                <h3>Self-Hypnosis Mastery</h3>
+                <p>Kuasai teknik self-hipnosis untuk kesehatan mental & pengembangan diri. Metode Hybrid dengan bimbingan komunitas.</p>
+                <div class="class-tags">
+                    <span class="tag">Hybrid Learning</span>
+                    <span class="tag">Mental Health</span>
+                </div>
+            </div>
+
+            <div class="class-card hidden delay-200">
+                <div class="class-icon-wrapper">
+                    <img src="hypneuro_pub.png" alt="Logo HypNeuro Public Speaking" class="class-logo-img">
+                </div>
+                <h3>Neuro-Public Speaking</h3>
+                <p>Menjadi pembicara profesional dengan teknik komunikasi efektif berbasis Neuroscience. Pengaruhi pikiran bawah sadar audiens.</p>
+                <div class="class-tags">
+                    <span class="tag">Professional</span>
+                    <span class="tag">Neuro-Comm</span>
+                </div>
+            </div>
+
+            <div class="class-card hidden delay-400">
+                <div class="class-icon-wrapper">
+                    <img src="hypneuro_eng.png" alt="Logo HypNeuro English" class="class-logo-img">
+                </div>
+                <h3>English Subconscious Learning</h3>
+                <p>Metode belajar alami menyesuaikan cara kerja otak manusia. Khusus untuk yang merasa kemampuan Bahasa Inggrisnya NOL.</p>
+                <div class="class-tags">
+                    <span class="tag">Beginner Friendly</span>
+                    <span class="tag">Tanpa Hafalan</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <section class="section-padding bg-dark" id="why-us">
         <div class="why-us-grid">
             <div class="why-us-content hidden delay-200">
@@ -218,51 +272,8 @@
                 </div>
             </div>
             <div class="why-us-image hidden">
-                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1000&q=80" alt="Coach Abu Naveed">
+                <img src="coach.jpg" alt="Coach Abu Naveed">
             </div>
-        </div>
-    </section>
-
-    <section class="section-padding bg-gray" id="classes">
-        <div class="section-title-wrapper hidden">
-            <h2>Kelas Online</h2>
-            <p>Tingkatkan keahlian Anda dengan metode pembelajaran berbasis cara kerja otak.</p>
-        </div>
-        <div class="grid-container">
-            
-            <div class="class-card hidden">
-                <img src="canself.png" alt="Logo Kelas Self Hypnosis" class="class-logo-img">
-                <h3>Self-Hypnosis Mastery</h3>
-                <p>Kuasai teknik self-hipnosis untuk kesehatan mental & pengembangan diri secara mandiri. Metode Hybrid yang mudah dengan bimbingan penuh dari komunitas.</p>
-                <div class="class-tags">
-                    <span class="tag">Hybrid Learning</span>
-                    <span class="tag">Mental Health</span>
-                    <span class="tag">Komunitas</span>
-                </div>
-            </div>
-
-            <div class="class-card hidden delay-200">
-                <img src="hypneuro_pub.png" alt="Logo Kelas Public Speaking" class="class-logo-img">
-                <h3>Neuro-Public Speaking</h3>
-                <p>Menjadi pembicara profesional dengan teknik komunikasi efektif berbasis Neuroscience. Pengaruhi pikiran bawah sadar audiens Anda untuk dampak maksimal.</p>
-                <div class="class-tags">
-                    <span class="tag">Professional</span>
-                    <span class="tag">Neuro-Comm</span>
-                    <span class="tag">High Impact</span>
-                </div>
-            </div>
-
-            <div class="class-card hidden delay-400">
-                <img src="hypneuro_eng.png" alt="Logo Kelas English" class="class-logo-img">
-                <h3>English Subconscious Learning</h3>
-                <p>Dirancang khusus untuk remaja & dewasa yang merasa kemampuan Bahasa Inggrisnya masih NOL. Metode belajar alami menyesuaikan cara kerja otak manusia.</p>
-                <div class="class-tags">
-                    <span class="tag">Beginner Friendly</span>
-                    <span class="tag">Tanpa Hafalan</span>
-                    <span class="tag">Remaja & Dewasa</span>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -271,8 +282,26 @@
             <h3>Siap Untuk Level Selanjutnya?</h3>
             <p>Jangan biarkan hambatan mental menahan potensi Anda lebih lama lagi.</p>
             <br>
-            <a href="https://wa.me/6281543111305" class="cta-btn-nav" id="wa-footer" style="font-size: 1.2rem;">Hubungi via WhatsApp</a>
-            <p style="margin-top: 3rem; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 CAN HypNeuro Centre. All Rights Reserved.</p>
+            <a href="https://wa.me/6281234567890" class="cta-btn-nav" id="wa-footer" style="font-size: 1.2rem;">Hubungi via WhatsApp</a>
+            
+            <div class="footer-bottom">
+                
+                <div class="member-section">
+                    <p>Member of:</p>
+                    <img src="ibh-logo.png" alt="IBH Certified" class="ibh-logo">
+                </div>
+
+                <div class="social-links">
+                    <a href="https://wa.me/6281543111305" class="social-btn" title="Telepon/WA"><i class="fa-solid fa-phone"></i></a>
+                    <a href="mailto:email@anda.com" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="#" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 CAN HypNeuro Centre. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -291,5 +320,4 @@
         document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
     </script>
 </body>
-
 </html>
